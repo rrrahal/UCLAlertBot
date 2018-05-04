@@ -45,7 +45,7 @@ function tutorialWednesdayJob() {
 function cloretoJob() {
     let channel1 = client.channels.get('442046971235139586');
     var job = new CronJob({
-    cronTime: '00 30 18 * * 0-6',
+    cronTime: '00 00 20 * * 0-6',
     onTick: function() {
       channel1.send("Fez alguma coisa pelo grupo recentemente? Alimente o Cloreto!");
       channel1.send("https://gitlab.com/uspcodelab/kanban");
