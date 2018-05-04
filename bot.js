@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { prefix, token } = require('./config.json');
+const { token } = require('./config.json');
 var CronJob = require('cron').CronJob;
 
 client.on('ready', () => {
@@ -45,7 +45,7 @@ function tutorialWednesdayJob() {
 function cloretoJob() {
     let channel1 = client.channels.get('442046971235139586');
     var job = new CronJob({
-    cronTime: '30 34 18 * * 0-6',
+    cronTime: '00 30 18 * * 0-6',
     onTick: function() {
       channel1.send("Fez alguma coisa pelo grupo recentemente? Alimente o Cloreto!");
       channel1.send("https://gitlab.com/uspcodelab/kanban");
