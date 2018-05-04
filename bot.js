@@ -13,7 +13,7 @@ client.on('ready', () => {
 });
 
 client.on('message',(message) => {
-    if (message.content.includes('cloreto') && !message.author.bot) {
+    if (message.content.toLocaleLowerCase().includes('cloreto') && !message.author.bot) {
         message.channel.send("É, você realmente deveria atualizar o cloreto.");
     }
 });
