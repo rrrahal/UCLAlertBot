@@ -1,15 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const { prefix, token } = require('./config.json');
+var CronJob = require('cron').CronJob;
 
 client.on('ready', () => {
-    console.log('Ready!');
-    let canal2;
-    client.channels.array().forEach((channel) => {
-        if (channel.name === 'segundo-canal') {
-            canal2 = channel;
-        }
-    });
+    memeMondayJob();
 });
 
 client.on('message',(message) => {
@@ -17,5 +12,20 @@ client.on('message',(message) => {
         message.channel.send("É, você realmente deveria atualizar o cloreto.");
     }
 });
+
+function memeMondayJob() {
+    let channel2 = client.channels.get('442051539927040002');
+    var job = new CronJob({
+    cronTime: '00 00 18 * * 1',
+    onTick: function() {
+      channel2.send("Oi gente, não se esqueçam que hoje é dia de #MemeMonday!");
+    },
+    start: false,
+    timeZone: "America/Sao_Paulo"
+  });
+  job.start();
+}
+
+
 
 client.login(token);
